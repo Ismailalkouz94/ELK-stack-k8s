@@ -1,0 +1,16 @@
+0- create ns mon
+
+1- kubectl -n mon create cm es-p12-cert --from-file=elastic-stack-ca.p12
+
+2- update storage class in elasticsearch file
+
+3- apply elasticsearch
+
+4- exec inside elasticsearch container >>> inside /usr/share/elasticsearch/bin/ runt this command : ./elasticsearch-setup-passwords interactive
+   kubectl exec -it es-cluster-0 -n mon -- /bin/bash
+
+5- update usename and password in kibana file && apply kibana 
+
+6 - apply filebeat 
+
+7- update username and password in logstash file && apply logstash 
